@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Completo: O que é Home Facilities? | NIMIAR</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2F4F4F 0%, #3a5f5f 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23E8E8E8" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23E8E8E8" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            background: #2F4F4F;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            width: 35px;
+            height: 40px;
+            background: white;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .main-title {
+            font-size: 42px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #E8E8E8;
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .description {
+            font-size: 16px;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            padding: 50px 40px;
+        }
+        
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2F4F4F;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #2F4F4F;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #E8E8E8;
+        }
+        
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .intro-text {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #2F4F4F 0%, #3a5f5f 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .highlight-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-text {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .comparison-card {
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .traditional {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            color: white;
+        }
+        
+        .home-facilities {
+            background: linear-gradient(135deg, #51cf66 0%, #40c057 100%);
+            color: white;
+        }
+        
+        .comparison-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .comparison-list {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .comparison-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .traditional .comparison-list li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #ffcccc;
+            font-weight: bold;
+        }
+        
+        .home-facilities .comparison-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ccffcc;
+            font-weight: bold;
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .pillar-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 4px solid #2F4F4F;
+        }
+        
+        .pillar-icon {
+            font-size: 48px;
+            color: #2F4F4F;
+            margin-bottom: 20px;
+        }
+        
+        .pillar-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2F4F4F;
+            margin-bottom: 15px;
+        }
+        
+        .pillar-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .benefit-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            border-left: 4px solid #2F4F4F;
+        }
+        
+        .benefit-icon {
+            font-size: 36px;
+            color: #2F4F4F;
+            margin-bottom: 15px;
+        }
+        
+        .benefit-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-text {
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .myth-buster {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+        
+        .myth-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #ff6b6b;
+        }
+        
+        .myth-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+        
+        .truth-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #51cf66;
+            margin-bottom: 8px;
+        }
+        
+        .myth-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #2F4F4F 0%, #3a5f5f 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .cta-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .cta-text {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #E8E8E8;
+            color: #2F4F4F;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #2F4F4F;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 0 30px;
+        }
+        
+        .timeline-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2F4F4F;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-text {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: #2F4F4F;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px #2F4F4F;
+        }
+        
+        @media (max-width: 768px) {
+            .intro-grid,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: row !important;
+                margin-left: 40px;
+            }
+            
+            .timeline-content {
+                margin: 0;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .header {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <div class="logo"></div>
+                <h1 class="main-title">NIMIAR</h1>
+                <p class="subtitle">HOME FACILITIES</p>
+                <p class="description">Guia Completo: Entenda o conceito que está transformando a gestão residencial em Alphaville</p>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- INTRODUÇÃO -->
+            <div class="section">
+                <h2 class="section-title">O Que É Home Facilities?</h2>
+                <div class="intro-grid">
+                    <div class="intro-text">
+                        <p>Imagine chegar em casa após um longo dia de trabalho e encontrar seu jardim perfeitamente cuidado, sua piscina cristalina e todos os pequenos problemas da casa já resolvidos.</p>
+                        
+                        <p>Não é um sonho - é o conceito de <strong>Home Facilities</strong> que a NIMIAR trouxe para Alphaville.</p>
+                        
+                        <p>Home Facilities é um conceito que integra todos os serviços de manutenção e cuidado da sua residência em uma única solução coordenada e profissional.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <h3 class="highlight-title">A Diferença Fundamental</h3>
+                        <p class="highlight-text">É como ter um "departamento de facilities" - comum em grandes empresas - dedicado exclusivamente à sua casa.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- COMPARAÇÃO -->
+            <div class="section">
+                <h2 class="section-title">Tradicional vs Home Facilities</h2>
+                <div class="comparison-grid">
+                    <div class="comparison-card traditional">
+                        <h3 class="comparison-title">Modelo Tradicional</h3>
+                        <ul class="comparison-list">
+                            <li>Jardineiro uma vez por semana</li>
+                            <li>Piscineiro quando necessário</li>
+                            <li>Eletricista quando algo quebra</li>
+                            <li>Cada profissional independente</li>
+                            <li>Você coordena tudo sozinho</li>
+                            <li>Manutenção apenas corretiva</li>
+                            <li>Qualidade inconsistente</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card home-facilities">
+                        <h3 class="comparison-title">Home Facilities NIMIAR</h3>
+                        <ul class="comparison-list">
+                            <li>Equipe integrada e coordenada</li>
+                            <li>Manutenção preventiva planejada</li>
+                            <li>Gestão completa por profissionais</li>
+                            <li>Relatórios e acompanhamento</li>
+                            <li>Você só aproveita os resultados</li>
+                            <li>Padrão de qualidade consistente</li>
+                            <li>Transparência total</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PILARES -->
+            <div class="section">
+                <h2 class="section-title">Os 4 Pilares do Home Facilities</h2>
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-icon">🔗</div>
+                        <h3 class="pillar-title">Integração Total</h3>
+                        <p class="pillar-text">Todos os serviços coordenados por uma única empresa especializada, garantindo comunicação unificada e padrão de qualidade consistente.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon">🎯</div>
+                        <h3 class="pillar-title">Especialização Regional</h3>
+                        <p class="pillar-text">Foco exclusivo em Alphaville permite conhecimento profundo das características locais e padrões de qualidade esperados.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon">📱</div>
+                        <h3 class="pillar-title">Tecnologia e Transparência</h3>
+                        <p class="pillar-text">Documentação fotográfica, relatórios mensais detalhados e comunicação digital eficiente para transparência total.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon">👥</div>
+                        <h3 class="pillar-title">Equipe Qualificada</h3>
+                        <p class="pillar-text">Profissionais treinados e comprometidos com os padrões da empresa, garantindo continuidade e qualidade superior.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BENEFÍCIOS -->
+            <div class="section">
+                <h2 class="section-title">Transformação de Estilo de Vida</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">⏰</div>
+                        <h4 class="benefit-title">Tempo Recuperado</h4>
+                        <p class="benefit-text">Fins de semana livres para família e lazer, sem coordenação de serviços</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">😌</div>
+                        <h4 class="benefit-title">Tranquilidade</h4>
+                        <p class="benefit-text">Saber que tudo está sendo cuidado profissionalmente</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🏠</div>
+                        <h4 class="benefit-title">Casa Perfeita</h4>
+                        <p class="benefit-text">Propriedade sempre impecável e pronta para receber</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">💪</div>
+                        <h4 class="benefit-title">Energia Liberada</h4>
+                        <p class="benefit-text">Foco no trabalho e crescimento pessoal</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">❤️</div>
+                        <h4 class="benefit-title">Qualidade de Vida</h4>
+                        <p class="benefit-text">Mais tempo para relacionamentos e hobbies</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📈</div>
+                        <h4 class="benefit-title">Valorização</h4>
+                        <p class="benefit-text">Propriedade bem cuidada mantém e aumenta valor</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TIMELINE -->
+            <div class="section">
+                <h2 class="section-title">Um Dia na Vida com Home Facilities</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">6h00 - Você Acorda</h4>
+                            <p class="timeline-text">Enquanto você se prepara para o dia, a equipe de jardinagem já está trabalhando, seguindo cronograma que não interfere na sua rotina.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">8h00 - Você Sai para Trabalhar</h4>
+                            <p class="timeline-text">Com tranquilidade de saber que profissionais qualificados estão cuidando da sua propriedade com o mesmo carinho que você teria.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">Durante o Dia</h4>
+                            <p class="timeline-text">Você recebe atualizações discretas sobre o progresso dos serviços, com fotos do antes e depois, sem interromper suas atividades.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">18h00 - Você Volta para Casa</h4>
+                            <p class="timeline-text">Encontra tudo impecável: jardim cuidado, piscina cristalina, pequenos reparos já resolvidos.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">Fim de Semana</h4>
+                            <p class="timeline-text">Você simplesmente aproveita sua casa perfeita com a família, sem se preocupar com listas de tarefas.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- MITOS E VERDADES -->
+            <div class="section">
+                <h2 class="section-title">Mitos e Verdades</h2>
+                <div class="myth-buster">
+                    <div class="myth-item">
+                        <h4 class="myth-title">MITO: "É apenas para pessoas muito ricas"</h4>
+                        <h5 class="truth-title">VERDADE:</h5>
+                        <p class="myth-text">É para pessoas que valorizam tempo e qualidade de vida. Quando você soma gastos com prestadores independentes, produtos, retrabalhos e o valor do seu tempo, Home Facilities oferece melhor custo-benefício.</p>
+                    </div>
+                    <div class="myth-item">
+                        <h4 class="myth-title">MITO: "Perco o controle da minha casa"</h4>
+                        <h5 class="truth-title">VERDADE:</h5>
+                        <p class="myth-text">Você ganha mais controle através de relatórios detalhados, cronogramas transparentes e comunicação profissional. O que você perde é o stress de coordenar tudo sozinho.</p>
+                    </div>
+                    <div class="myth-item">
+                        <h4 class="myth-title">MITO: "Funciona apenas para casas muito grandes"</h4>
+                        <h5 class="truth-title">VERDADE:</h5>
+                        <p class="myth-text">O conceito se adapta a diferentes tamanhos de propriedade. O que importa é a complexidade dos sistemas e o valor que você dá ao seu tempo.</p>
+                    </div>
+                    <div class="myth-item">
+                        <h4 class="myth-title">MITO: "É apenas jardinagem e piscina"</h4>
+                        <h5 class="truth-title">VERDADE:</h5>
+                        <p class="myth-text">Home Facilities é gestão integrada que inclui jardinagem, piscina, elétrica, hidráulica, limpezas especializadas e muito mais. É uma solução completa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA FINAL -->
+        <div class="cta-section">
+            <h2 class="cta-title">Sua Casa Merece Gestão Profissional</h2>
+            <p class="cta-text">Home Facilities não é sobre luxo - é sobre reconhecer que sua casa, como um dos seus bens mais valiosos, merece o mesmo nível de gestão profissional que você aplica em outras áreas importantes da sua vida.</p>
+            
+        </div>
+    </div>
+</body>
+</html>
+
